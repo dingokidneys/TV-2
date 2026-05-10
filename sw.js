@@ -1,7 +1,7 @@
 // TV Signal Finder — Service Worker
 // Caches the app shell and transmitter data for offline use
 
-const CACHE = 'tv-signal-v7';
+const CACHE = 'tv-signal-v1';
 const SHELL = [
   './',
   './index.html',
