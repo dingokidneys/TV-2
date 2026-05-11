@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>TV Signal Finder</title>
+  <title>TV Signal Finder                      v2.1</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#080c14">
   <meta name="mobile-web-app-capable" content="yes">
@@ -272,7 +272,7 @@
     <div id="txPanel">
       <div class="tx-toolbar">
         <span>&#9650; Strongest Signals</span>
-        <button id="scanBtn" onclick="doScan()" disabled>SCAN v2.0</button>
+        <button id="scanBtn" onclick="doScan()" disabled>Rescan</button>
       </div>
       <div id="txList">
         <div class="tx-placeholder">Tap SCAN after location is found</div>
@@ -444,12 +444,12 @@
     document.getElementById('locCoords').textContent =
       lat.toFixed(4) + '\u00b0, ' + lng.toFixed(4) + '\u00b0';
 
-    // Enable scan button and auto-run
+    // Step 2 & 3 — build table and auto-select first entry immediately
     document.getElementById('scanBtn').disabled = false;
     doScan();
 
-    // Reverse geocode for address (runs in parallel, doesn't block scan)
-    reverseGeocode(lat, lng);
+    // Step 4 — populate location data after table and compass are rendered
+    setTimeout(() => reverseGeocode(lat, lng), 100);
   }
 
   function onGPSError(err) {
