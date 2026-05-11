@@ -272,7 +272,7 @@
     <div id="txPanel">
       <div class="tx-toolbar">
         <span>&#9650; Strongest Signals</span>
-        <button id="scanBtn" onclick="doScan()" disabled>SCAN v1.2</button>
+        <button id="scanBtn" onclick="doScan()" disabled>SCAN v1.3</button>
       </div>
       <div id="txList">
         <div class="tx-placeholder">Tap SCAN after location is found</div>
@@ -376,6 +376,8 @@
     .catch(() => {
       showLocError('Could not load transmitters.json');
     });
+
+    document.getElementById("scanBtn").click  
 
   // ═══════════════════════════════════════════════════
   // MATHS
@@ -557,6 +559,32 @@
     });
   }
 
+  function pressButton(buttonId) {
+    try {
+        const btn = document.getElementById(buttonId);
+
+        if (!btn) {
+            console.error(`Button with ID "${buttonId}" not found.`);
+            return;
+        }
+
+        // Option 1: Directly call the click() method (simplest)
+        btn.click();
+
+        // Option 2: Dispatch a real click event (more control)
+        const event = new MouseEvent("click", {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        });
+        btn.dispatchEvent(event);
+
+        console.log(`Button "${buttonId}" pressed programmatically.`);
+    } catch (err) {
+        console.error("Error pressing button:", err);
+    }
+}
+  
   // ═══════════════════════════════════════════════════
   // TRANSMITTER SELECTION — updates compass
   // ═══════════════════════════════════════════════════
