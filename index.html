@@ -74,29 +74,29 @@
       flex-direction: column; min-height: 0;
     }
 
-    /* Location panel — 10% */
+    /* Location panel — 8% */
     #locPanel {
-      flex: 0 0 10%;
+      flex: 0 0 8%;
       background: var(--surf);
       border-bottom: 1px solid var(--bdr);
       padding: 4px 12px;
       display: flex; flex-direction: column;
-      justify-content: center; gap: 3px;
+      justify-content: center; align-items: center; gap: 3px;
       overflow: hidden;
     }
 
-    /* Transmitter panel — 20% */
+    /* Transmitter panel — 32% */
     #txPanel {
-      flex: 0 0 20%;
+      flex: 0 0 32%;
       background: var(--bg);
       border-bottom: 1px solid var(--bdr);
       display: flex; flex-direction: column;
       min-height: 0;
     }
 
-    /* Compass panel — 70% */
+    /* Compass panel — 60% */
     #cmpPanel {
-      flex: 0 0 70%;
+      flex: 0 0 60%;
       background: var(--bg);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
@@ -122,19 +122,18 @@
     .loc-primary {
       font-size: 17px; font-weight: 700; color: #fff;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      align-items: center;
+      display: inline;
     }
 
     .loc-secondary {
-      font-size: 13px; color: var(--text);
+      font-size: 17px; color: var(--text);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      align-items: center;
+      display: inline;
     }
 
     .loc-coords {
-      font-family: var(--mono); font-size: 12px; color: var(--teal);
-      letter-spacing: 0.04em;
-      align-items: center;
+      font-family: var(--mono); font-size: 14px; color: var(--teal);
+      letter-spacing: 0.04em; text-align: center;
     }
 
     /* ── Transmitter panel content ─────────────────────── */
@@ -330,8 +329,10 @@
         <div class="spinner" id="locSpinner"></div>
         <span id="locStatusText">Getting location&hellip;</span>
       </div>
-      <div class="loc-primary"   id="locPrimary"   style="display:none"></div>
-      <div class="loc-secondary" id="locSecondary" style="display:none"></div>
+      <div id="locAddrLine" style="display:none; text-align:center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+        <span class="loc-primary"   id="locPrimary"></span>
+        <span class="loc-secondary" id="locSecondary"></span>
+      </div>
       <div class="loc-coords"    id="locCoords"    style="display:none"></div>
     </div>
 
@@ -469,16 +470,15 @@
 
       // Street and locality from Nominatim
       const road     = a.road || a.pedestrian || a.path || '';
-      const locality = a.suburb || a.village || a.town || a.city_district || '';
-      const town     = a.town || a.city || a.county || '';
+      const locality = a.village || a.town || a.city || '';
+      const town     = a.town || a.city || a.country || '';
 
       const primary   = [road, locality].filter(Boolean).join(', ') || 'Unknown street';
       const secondary = [postcode, town, a.county].filter(Boolean).join(' \u00b7 ');
 
       document.getElementById('locPrimary').textContent   = primary;
       document.getElementById('locSecondary').textContent = secondary;
-      document.getElementById('locPrimary').style.display   = 'block';
-      document.getElementById('locSecondary').style.display = 'block';
+        document.getElementById('locAddrLine').style.display = 'block';
 
     } catch(e) {
       document.getElementById('locPrimary').textContent = 'Address unavailable';
