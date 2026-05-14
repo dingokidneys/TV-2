@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:    #080c14;
+      --bg:    #719df5;
       --surf:  #0f1520;
       --surf2: #151d2e;
       --bdr:   #1e2d45;
@@ -71,7 +71,7 @@
     #cmpPanel {
       flex: 0 0 70%;
       background: var(--bg);
-      border-bottom: 1px solid var(--bdr);
+      border-bottom: 3px solid var(--bdr);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       gap: 6px; overflow: hidden;
@@ -81,7 +81,7 @@
     #txPanel {
       flex: 0 0 20%;
       background: var(--bg);
-      border-bottom: 1px solid var(--bdr);
+      border-bottom: 3px solid var(--bdr);
       display: flex; flex-direction: column;
       min-height: 0;
     }
@@ -89,7 +89,7 @@
     /* Location — 10% */
     #locPanel {
       flex: 0 0 10%;
-      background: var(--surf);
+      background: var(--bg);
       padding: 4px 12px;
       display: flex; flex-direction: column;
       justify-content: center; align-items: center; gap: 3px;
@@ -296,7 +296,7 @@
     <div id="txPanel">
       <div class="tx-toolbar">
         <span>&#9650; Strongest Signals</span>
-        <button id="scanBtn" onclick="doScan()" disabled>SCAN</button>
+        <button id="scanBtn" onclick="doScan()" disabled>Rescan</button>
       </div>
       <div id="txList">
         <div class="tx-placeholder">Obtaining location&hellip;</div>
@@ -315,7 +315,7 @@
       <div id="locLine2"
            style="text-align:center; white-space:nowrap; overflow:hidden;
                   text-overflow:ellipsis; font-size:13px; width:100%;">
-        <span id="locPostcode" style="color:var(--text);"></span>
+        <span id="locPostcode" style="color:var(--teal);"></span>
         <span id="locLatLng"
               style="color:var(--teal); font-family:'JetBrains Mono',monospace;
                      font-size:12px;"></span>
@@ -433,7 +433,7 @@
 
       // Line 1 — road, place
       const road  = a.road || a.pedestrian || a.path || '';
-      const place = a.suburb || a.village || a.town || a.city || '';
+      const place = a.town || a.city || '';
       document.getElementById('locLine1').textContent =
         [road, place].filter(Boolean).join(', ') || 'Unknown location';
 
