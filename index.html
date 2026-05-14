@@ -55,7 +55,7 @@
     }
 
     #hdr h1 {
-      font-size: 18px; font-weight: 700;
+      font-size: 18px; font-weight: 700; text-align: center;
       letter-spacing: 0.06em; color: #fff; flex: 1;
     }
 
@@ -79,7 +79,7 @@
 
     /* Transmitter table — 25% */
     #txPanel {
-      flex: 0 0 25%;
+      flex: 0 0 50%;
       background: var(--bg);
       border-bottom: 3px solid var(--bdr);
       display: flex; flex-direction: column;
@@ -103,7 +103,7 @@
       color: var(--dim);
     }
 
-    .cmp-title.active { color: #fff; }
+    .cmp-title.active { color: #252525; }
 
     .cmp-stats { display: flex; gap: 20px; text-align: center; }
 
@@ -229,7 +229,7 @@
         <path d="M22 6h-4v4"/>
       </svg>
     </div>
-    <h1>TV <em>Signal</em> Finder</h1>
+    <h1>TV Signal Finder</h1>
   </div>
 
   <div id="panels">
@@ -296,7 +296,7 @@
     <div id="txPanel">
       <div class="tx-toolbar">
         <span> </span>
-       <!-- <button id="scanBtn" onclick="doScan()" disabled>Rescan</button>-->  
+        <!-- <button id="scanBtn" onclick="doScan()" disabled>Rescan</button> -->        
       </div>
       <div id="txList">
         <div class="tx-placeholder">Obtaining location&hellip;</div>
@@ -307,14 +307,14 @@
     <div id="locPanel">
       <!-- Line 1: road name, town -->
       <div id="locLine1"
-           style="text-align:center; color:#fff; font-size:15px; font-weight:700;
+           style="text-align:center; color:#252525; font-size:15px; font-weight:700;
                   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%;">
         <span class="spinner"></span>
       </div>
       <!-- Line 2: postcode + lat/lng -->
       <div id="locLine2"
-           style="text-align:center; white-space:nowrap; overflow:hidden;
-                  text-overflow:ellipsis; font-size:13px; width:100%;">
+           style="text-align:center; color:#252525; white-space:nowrap; overflow:hidden;
+                  text-overflow:ellipsis; font-size:14px; width:100%;">
         <span id="locPostcode" style="color:var(--teal);"></span>
         <span id="locLatLng"
               style="color:var(--teal); font-family:'JetBrains Mono',monospace;
