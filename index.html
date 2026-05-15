@@ -343,7 +343,8 @@
   // ═══════════════════════════════════════════
   // LOAD TRANSMITTER DATA
   // ═══════════════════════════════════════════
-  fetch('transmitters.json')
+  fetch("C:\Users\wrigh\OneDrive\Desktop\Android Apps\TV-2\Transmitters.json")
+  // fetch('transmitters.json')
     .then(r => { if (!r.ok) throw new Error(); return r.json(); })
     .then(data => { transmitters = data; })
     .catch(() => {
@@ -392,8 +393,10 @@
   // GPS — auto-start on load
   // ═══════════════════════════════════════════
   function onGPSSuccess(pos) {
-    const lat = pos.coords.latitude;
-    const lng = pos.coords.longitude;
+  //  const lat = pos.coords.latitude;
+  //  const lng = pos.coords.longitude;
+    const lat = 53.4854;
+    const lng = -2.0810;
 
     userLatRad = lat * PI / 180;
     userLngRad = lng * PI / 180;
@@ -449,13 +452,13 @@
   }
 
   // Request GPS on page load
-  if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(onGPSSuccess, onGPSError, {
-      enableHighAccuracy: true, timeout: 15000, maximumAge: 60000
-    });
-  } else {
-    document.getElementById('locLine1').textContent = 'Geolocation not supported';
-  }
+  //if ('geolocation' in navigator) {
+  //  navigator.geolocation.getCurrentPosition(onGPSSuccess, onGPSError, {
+  //    enableHighAccuracy: true, timeout: 15000, maximumAge: 60000
+  //  });
+  //} else {
+  //  document.getElementById('locLine1').textContent = 'Geolocation not supported';
+  //}
 
   // ═══════════════════════════════════════════
   // SCAN
