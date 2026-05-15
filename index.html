@@ -11,15 +11,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:    #5779c9;
+      --bg:    #719df5;
       --surf:  #0f1520;
       --surf2: #151d2e;
-      --bdr:   #1e2d45;
+      --bdr:   #4b4b4b;
       --teal:  #00d4aa;
       --amber: #f5a623;
       --text:  #c8d8e8;
       --dim:   #6b7d90;
-      --compasspoint:   #4b4b4b;
       --mono:  'JetBrains Mono', monospace;
       --sans:  'Rajdhani', sans-serif;
     }
@@ -44,7 +43,7 @@
     #hdr {
       flex: 0 0 auto;
       background: var(--surf);
-      border-bottom: 3px solid var(--bdr);
+      border-bottom: 1px solid var(--bdr);
       padding: 8px 14px;
       display: flex; align-items: center; gap: 10px;
     }
@@ -56,8 +55,8 @@
     }
 
     #hdr h1 {
-      font-size: 18px; font-weight: 700;
-      letter-spacing: 0.06em; color: #fff; flex: 1;
+      font-size: 18px; font-weight: 700; 
+      text-align: center; letter-spacing: 0.06em; color: #fff; flex: 1;
     }
 
     #hdr h1 em { color: var(--teal); font-style: normal; }
@@ -72,7 +71,7 @@
     #cmpPanel {
       flex: 0 0 65%;
       background: var(--bg);
-      border-bottom: 1px solid var(--bdr);
+      border-bottom: 3px solid var(--bdr);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       gap: 6px; overflow: hidden;
@@ -80,7 +79,7 @@
 
     /* Transmitter table — 25% */
     #txPanel {
-      flex: 0 0 25%;
+      flex: 0 0 50%;
       background: var(--bg);
       border-bottom: 3px solid var(--bdr);
       display: flex; flex-direction: column;
@@ -90,7 +89,7 @@
     /* Location — 10% */
     #locPanel {
       flex: 0 0 10%;
-      background: var(--surf);
+      background: var(--bg);
       padding: 4px 12px;
       display: flex; flex-direction: column;
       justify-content: center; align-items: center; gap: 3px;
@@ -104,7 +103,7 @@
       color: var(--dim);
     }
 
-    .cmp-title.active { color: #fff; }
+    .cmp-title.active { color: #252525; }
 
     .cmp-stats { display: flex; gap: 20px; text-align: center; }
 
@@ -230,7 +229,7 @@
         <path d="M22 6h-4v4"/>
       </svg>
     </div>
-    <h1>TV <em>Signal</em> Finder</h1>
+    <h1>TV Signal Finder</h1>
   </div>
 
   <div id="panels">
@@ -267,14 +266,14 @@
             <line x1="6"   y1="100" x2="16"  y2="100"/>
             <line x1="184" y1="100" x2="194" y2="100"/>
           </g>
-          <text x="100" y="30"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill=var(--compasspoint)>N</text>
-          <text x="100" y="178" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill=var(--compasspoint)>S</text>
-          <text x="172" y="104" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill=var(--compasspoint)>E</text>
-          <text x="28"  y="104" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill=var(--compasspoint)>W</text>
-          <text x="152" y="52"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill=var(--compasspoint)>NE</text>
-          <text x="152" y="156" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill=var(--compasspoint)>SE</text>
-          <text x="48"  y="156" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill=var(--compasspoint)>SW</text>
-          <text x="48"  y="52"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill=var(--compasspoint)>NW</text>
+          <text x="100" y="30"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill="#ffffff">N</text>
+          <text x="100" y="178" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill="#4a5f72">S</text>
+          <text x="172" y="104" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill="#4a5f72">E</text>
+          <text x="28"  y="104" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill="#4a5f72">W</text>
+          <text x="152" y="52"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill="#2a4060">NE</text>
+          <text x="152" y="156" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill="#2a4060">SE</text>
+          <text x="48"  y="156" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill="#2a4060">SW</text>
+          <text x="48"  y="52"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill="#2a4060">NW</text>
         </g>
 
         <!-- Polarisation label — fixed at centre, never rotates -->
@@ -297,7 +296,7 @@
     <div id="txPanel">
       <div class="tx-toolbar">
         <span> </span>
-        <button id="scanBtn" onclick="doScan()" disabled>SCAN</button>
+        <!-- <button id="scanBtn" onclick="doScan()" disabled>Rescan</button> -->        
       </div>
       <div id="txList">
         <div class="tx-placeholder">Obtaining location&hellip;</div>
@@ -308,15 +307,15 @@
     <div id="locPanel">
       <!-- Line 1: road name, town -->
       <div id="locLine1"
-           style="text-align:center; color:#fff; font-size:15px; font-weight:700;
+           style="text-align:center; color:#252525; font-size:15px; font-weight:700;
                   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%;">
         <span class="spinner"></span>
       </div>
       <!-- Line 2: postcode + lat/lng -->
       <div id="locLine2"
-           style="text-align:center; white-space:nowrap; overflow:hidden;
-                  text-overflow:ellipsis; font-size:13px; width:100%;">
-        <span id="locPostcode" style="color:var(--text);"></span>
+           style="text-align:center; color:#252525; white-space:nowrap; overflow:hidden;
+                  text-overflow:ellipsis; font-size:14px; width:100%;">
+        <span id="locPostcode" style="color:var(--teal);"></span>
         <span id="locLatLng"
               style="color:var(--teal); font-family:'JetBrains Mono',monospace;
                      font-size:12px;"></span>
@@ -434,7 +433,7 @@
 
       // Line 1 — road, place
       const road  = a.road || a.pedestrian || a.path || '';
-      const place = a.suburb || a.village || a.town || a.city || '';
+      const place = a.town || a.city || '';
       document.getElementById('locLine1').textContent =
         [road, place].filter(Boolean).join(', ') || 'Unknown location';
 
