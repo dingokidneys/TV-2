@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:    #080c14;
+      --bg:    #457ae6;
       --surf:  #0f1520;
       --surf2: #151d2e;
       --bdr:   #1e2d45;
@@ -67,9 +67,9 @@
       flex-direction: column; min-height: 0;
     }
 
-    /* Compass — 70% */
+    /* Compass — 65% */
     #cmpPanel {
-      flex: 0 0 70%;
+      flex: 0 0 65%;
       background: var(--bg);
       border-bottom: 1px solid var(--bdr);
       display: flex; flex-direction: column;
@@ -77,9 +77,9 @@
       gap: 6px; overflow: hidden;
     }
 
-    /* Transmitter table — 20% */
+    /* Transmitter table — 25% */
     #txPanel {
-      flex: 0 0 20%;
+      flex: 0 0 25%;
       background: var(--bg);
       border-bottom: 1px solid var(--bdr);
       display: flex; flex-direction: column;
@@ -295,8 +295,8 @@
     <!-- ── Transmitter panel ─────────────────────────── -->
     <div id="txPanel">
       <div class="tx-toolbar">
-        <span>&#9650; Strongest Signals</span>
-        <button id="scanBtn" onclick="doScan()" disabled>SCAN</button>
+        <span> </span>
+        <button id="scanBtn" onclick="doScan()" disabled>Rescan</button>
       </div>
       <div id="txList">
         <div class="tx-placeholder">Obtaining location&hellip;</div>
