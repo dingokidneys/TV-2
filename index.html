@@ -23,7 +23,8 @@
       --compasslabels:   #353535;
       --compasscntr:   #809fdd ;
       --compassring:   #6c92df ;
-      --transptr: #21115c;
+      --goodptr: var(--teal);
+      --badptr: #fd0404;
 
       --mono:  'JetBrains Mono', monospace;
       --sans:  'Rajdhani', sans-serif;
@@ -290,7 +291,7 @@
 
         <!-- pointerGroup: rotates to (brg + alpha) % 360 -->
         <g id="pointerGroup" style="transform-origin:100px 100px; opacity:0.6">
-           <polygon points="100,30,93,85, 100,75 107,85" fill=var(--transptr) />
+           <polygon points="100,32,93,82, 100,72 107,82" fill=var(--badptr) />
          </g>
 
       </svg>
@@ -564,6 +565,15 @@
     }
 
     document.getElementById('cmpNote').textContent = 'Hold phone flat, face up';
+
+    // Colour pointer green if phone is aimed within ±5° of transmitter
+    if (selectedTx) {
+      let diff = (selectedTx.brg - (360 - smoothedAlpha) + 360) % 360;
+      if (diff > 180) diff = 360 - diff;
+      const colour = diff <= 5 ? --goodptr : --badptr;
+      document.getElementById('pointerArrow').style.fill = colour;
+      document.getElementById('polLabel').style.fill = colour;
+    }
   }
 
   function startCompass() {
