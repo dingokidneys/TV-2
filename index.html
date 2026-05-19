@@ -25,8 +25,8 @@
       --compassring:   #6c92df ;
 /*      --goodptr: #378950;   */
 /*      --badptr: #ba3c3c;    */
-      --goodptr: var(--surf);
-      --badptr: var(--surf);
+      --goodptr:  #3b9248;
+      --badptr:  #923b3b;
 
       --mono:  'JetBrains Mono', monospace;
       --sans:  'Rajdhani', sans-serif;
@@ -288,7 +288,7 @@
 
         <!-- Polarisation label — fixed at centre, never rotates -->
         <text id="polLabel" x="100" y="107" text-anchor="middle"
-              font-family="'Rajdhani',sans-serif" font-size="36" font-weight="700" font-color=var(--badptr)
+              font-family="'Rajdhani',sans-serif" font-size="36" font-weight="700" 
               fill=var(--badptr) opacity="0">&#8203;</text>
 
         <!-- pointerGroup: rotates to (brg + alpha) % 360 -->
@@ -572,7 +572,7 @@
     if (selectedTx) {
       let diff = (selectedTx.brg - (360 - smoothedAlpha) + 360) % 360;
       if (diff > 180) diff = 360 - diff;
-      const colour = diff <= 5 ? '--goodptr' : '--badptr';
+      const colour = diff <= 5 ? --goodptr : --badptr;
       document.getElementById('pointerArrow').style.fill = colour;
       document.getElementById('polLabel').style.fill = colour;
     }
