@@ -15,16 +15,16 @@
       --surf:  #0f1520;
       --surf2: #151d2e;
       --bdr:   #1e2d45;
-      --teal:  00d4aa;
-      --amber: c7933f;
-      --text:  c8d8e8;
-      --text2:  ebebeb;
-      --dim:   6b7d90;
-      --compasslabels:   353535;
-      --compasscntr:   809fdd ;
-      --compassring:   6c92df ;
-/*      --goodptr: 378950;   */
-/*      --badptr: ba3c3c;    */
+      --teal:  #00d4aa;
+      --amber: #c7933f;
+      --text:  #c8d8e8;
+      --text2:  #ebebeb;
+      --dim:   #6b7d90;
+      --compasslabels:   #353535;
+      --compasscntr:   #809fdd ;
+      --compassring:   #6c92df ;
+/*      --goodptr: #378950;   */
+/*      --badptr: #ba3c3c;    */
       --goodptr: var(--surf);
       --badptr: var(--surf);
 
@@ -43,13 +43,13 @@
       font-family: var(--sans); font-size: 15px;
     }
 
-    app {
+    #app {
       display: flex; flex-direction: column;
       height: 100vh; height: 100dvh;
     }
 
     /* ── Header ─────────────────────────────────────── */
-    hdr {
+    #hdr {
       flex: 0 0 auto;
       background: var(--bg);
       border-bottom: 4px solid var(--bdr); text-align: center;
@@ -63,15 +63,15 @@
       align-items: center; justify-content: center; flex-shrink: 0;
     }
 
-    hdr h1 {
+    #hdr h1 {
       font-size: 18px; font-weight: 700;
       letter-spacing: 0.06em; color: var(--text2); flex: 1;
     }
 
-    hdr h1 em { color: var(--teal); font-style: normal; }
+    #hdr h1 em { color: var(--teal); font-style: normal; }
 
     /* ── Panels ─────────────────────────────────────── */
-    panels {
+    #panels {
       flex: 1 1 0; display: flex;
       flex-direction: column; min-height: 0;
     }
@@ -185,7 +185,7 @@
     }
 
     .tx-rank {
-      font-family: var(--text); font-size: 20px;
+      font-family: var(--text); font-size: 14px;
       color: var(--teal); min-width: 20px; flex-shrink: 0;
     }
 
