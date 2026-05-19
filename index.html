@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:    #3d5d9b;
+      --bg:    #304877;
       --surf:  #0f1520;
       --surf2: #151d2e;
       --bdr:   #1e2d45;
@@ -153,8 +153,8 @@
     }
 
     #scanBtn {
-      background: var(--teal); border: none; border-radius: 6px;
-      color: #05120e; font-family: var(--sans); font-size: 13px;
+      background: var(--bg); border: none; border-radius: 6px;
+      color: #05120e00; font-family: var(--sans); font-size: 13px;
       font-weight: 700; padding: 4px 14px; cursor: pointer;
       letter-spacing: 0.08em; transition: opacity 0.ms;
     }
@@ -205,8 +205,8 @@
     }
 
     .tx-placeholder {
-      padding: 10px; font-size: 12px;
-      color: var(--dim); text-align: center;
+      padding: 14px; font-size: 12px;
+      color: var(--text2); text-align: center;
     }
 
     /* ── Spinner ────────────────────────────────────── */
@@ -243,7 +243,7 @@
 
     <!-- ── Compass panel ────────────────────────────── -->
     <div id="cmpPanel">
-      <div class="cmp-title" id="cmpTitle">LOCATING&hellip;</div>
+      <div class="cmp-title" id="cmpTitle"></div>
 
       <div class="cmp-stats" id="cmpStats" style="display:none">
         <div class="stat-block">
@@ -290,12 +290,12 @@
 
         <!-- pointerGroup: rotates to (brg + alpha) % 360 -->
         <g id="pointerGroup" style="transform-origin:100px 100px; opacity:0.6">
-           <polygon points="100,30,93,95, 100,85 107,95" fill=var(--transptr) />
+           <polygon points="100,30,93,85, 100,75 107,85" fill=var(--transptr) />
          </g>
 
       </svg>
 
-      <div class="cmp-note" id="cmpNote">Waiting for compass&hellip;</div>
+      <div class="cmp-note" id="cmpNote"></div>
     </div>
 
     <!-- ── Transmitter panel ─────────────────────────── -->
@@ -303,7 +303,7 @@
       <div class="tx-toolbar">
       </div>
       <div id="txList">
-        <div class="tx-placeholder">Obtaining location&hellip;</div>
+        <div class="tx-placeholder">Obtaining location &hellip;</div>
       </div>
     </div>
 
@@ -318,7 +318,7 @@
       <!-- Line 2: postcode + lat/lng -->
       <div id="locLine2"
            style="text-align:center; white-space:nowrap; overflow:hidden;
-                  text-overflow:ellipsis; font-size:14px; width:100%; color:var(--text2);">
+                  text-overflow:ellipsis; font-size:15px; width:100%; color:var(--text2);">
         <span id="locPostcode"></span>
         <span id="locLatLng"></span>
       </div>
