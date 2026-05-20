@@ -569,8 +569,10 @@
     document.getElementById('cmpNote').textContent = 'Hold phone flat, face up';
 
     // Colour pointer green if phone is aimed within ±5° of transmitter
+    
     if (selectedTx) {
-      let diff = (selectedTx.brg - (360 - smoothedAlpha) + 360) % 360;
+      const heading = (360 - smoothedAlpha + 360) % 360;
+      let diff = Math.abs(selectedTx.brg - heading) % 360;
       if (diff > 180) diff = 360 - diff;
       const colour = diff <= 5 ? --goodptr : --badptr;
       document.getElementById('pointerArrow').style.fill = colour;
