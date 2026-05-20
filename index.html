@@ -574,7 +574,7 @@
       const heading = (360 - smoothedAlpha + 360) % 360;
       let diff = Math.abs(selectedTx.brg - heading) % 360;
       if (diff > 180) diff = 360 - diff;
-      const colour = diff <= 5 ? --goodptr : --badptr;
+      const colour = diff <= 5 ? 'var(--goodptr)' : 'var(--badptr)';
       document.getElementById('pointerArrow').style.fill = colour;
       document.getElementById('polLabel').style.fill = colour;
     }
